@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{%block content%}
+
+<h1>
+    my blog website is here
+</h1>
+{%for post in posts%}
+<h3>
+    <a href="#">{{post.title}}</a>
+</h3>
+{%endfor%}
+
+{% endblock %}
