@@ -1,0 +1,35 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+<h1>title : {{post.title}}</h2>
+<h4>{{post.author}}</h4>
+<p></p>
+<h4>{{post.body}}</h4>
+{%with comments.count as total_comments%}
+<h2>{{total_comments}} comment {{total_comments|pluralize}}</h2>
+{%endwith%}
+{%for comment in comments%}
+<div class="comment">
+    <p class="info">
+        Comment {{foorloop.counter}} by {{comment.name}}
+        {{comment.created}}
+
+    </p>
+    {{comment.body}}
+{%empty%}
+<p>there are no comments yet.</p>
+</div>
+{%if new_comment%}
+<h2>comment has been successfully created</h2>
+{%else%}
+
+<form action="" method="post">
+    {{comment_form.as_p}}
+    {%csrf_token%}
+    <p><input type="submit" value="Add comment"></p>
+</form>
+{%endif%}
+{%endfor%}
+<p><h5>share the link to this post through email here <a href="{%url 'share_post' post.id %}">click here</a></h5></p>
+{%endblock%}

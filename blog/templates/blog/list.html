@@ -7,7 +7,7 @@
 {%for post in posts%}
 
 <h3>
-    <a href="#">{{post.title}}</a>
+    <a href="{%url 'post_detail' post.id%}">{{post.title}}</a>
     <p></p>
     <h4>{{post.body}}</h4>
 </h3>
