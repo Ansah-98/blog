@@ -33,3 +33,9 @@
 {%endfor%}
 <p><h5>share the link to this post through email here <a href="{%url 'share_post' post.id %}">click here</a></h5></p>
 {%endblock%}
+<!-- <h2>similar post </h2>
+{% for post in similar_post %}
+<p><a href="{%url post.get_absolute_url %}"> {{post.title}} </a></p>
+{%empty%}
+there are no similar post
+{%endfor%} -->

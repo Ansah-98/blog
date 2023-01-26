@@ -31,9 +31,11 @@ h1{
     margin-left: 20%;
     text-align: center ;
     text-transform: capitalize;
+    font-size: smaller;
 }
 h4{
     margin-left: 30%;
+    font-size: smaller;
     max-width: 32%;
 }
 body{

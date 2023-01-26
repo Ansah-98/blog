@@ -4,12 +4,33 @@
 <h1>
     my blog website is here
 </h1>
-{%for post in posts%}
+{%if tag%}
 
+<h2>Post tagged with {{tag.name}}</h2>
+{%for tag in posts.tags.all%}
+
+<a href="{%url 'blog_post_list_by_tags' tag.slug%}">
+    {{tag.name}}
+</a>
+
+
+{%if not forloop.last %}
+
+{%endif%}
+{%endfor%}
+
+
+{%else%}
+
+{%for post in posts%}
 <h3>
     <a href="{%url 'post_detail' post.id%}">{{post.title}}</a>
     <p></p>
     <h4>{{post.body}}</h4>
 </h3>
-{%endfor%}
+{%  endfor  %}
+
+{%  endif %}
+
+
 {% endblock %}
